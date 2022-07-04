@@ -1,6 +1,6 @@
 {
   "name": "yariel.dev-colors",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "colores de consola",
   "main": "./dist-node/index.js",
   "browser": "./dist-browser/index.js",
