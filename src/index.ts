@@ -19,4 +19,31 @@ const consoleLog = (color: string, message: string) => {
   console.log(Color.Red, message);
 };
 
-export { consoleLog };
+// const randomColor = () => {
+//   var letters = "0123456789ABCDEF";
+//   var color = "#";
+//   for (var i = 0; i < 6; i++) {
+//     color += letters[Math.floor(Math.random() * 16)];
+//   }
+//   return color;
+// };
+
+// const leer = (msg) => {
+//   var inputValue = msg;
+//   var inputSplitted = inputValue.split("");
+
+//   let i = 0,
+//     inputLength = inputSplitted.length;
+//   var newLog = '"';
+//   var colors = "";
+//   for (i = 0; i < inputLength; i++) {
+//     // Chaque lettre est contenue dans inputSplitted[i]
+//     newLog += "%c" + inputSplitted[i];
+//     colors += ',"color: ' + randomColor() + ';"';
+//   }
+//   newLog += '"';
+//   var log = newLog + colors;
+//   console.log(`"${log}"`);
+// };
+
+export { consoleLog, Color };

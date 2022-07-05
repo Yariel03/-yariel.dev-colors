@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+exports.Color = exports.consoleLog = void 0;
 var Color = {
     Red: "\x1b[31m%s\x1b[0m",
     Green: "\x1b[32m%s\x1b[0m",
@@ -13,4 +16,8 @@ var Color = {
     YellowBg: "\x1b[43m%s\x1b[0m",
     BlueBg: "\x1b[44m%s\x1b[0m"
 };
-export { Color };
+exports.Color = Color;
+var consoleLog = function (color, message) {
+    console.log(Color.Red, message);
+};
+exports.consoleLog = consoleLog;

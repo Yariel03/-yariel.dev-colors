@@ -1,18 +1,11 @@
 {
   "name": "yariel.dev-colors",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "colores de consola",
-  "main": "./dist-node/index.js",
-  "browser": "./dist-browser/index.js",
+  "main": "./lib/index.js",
+  "types": "./dist-node/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./src/index.ts",
-    "dev": "ts-node-dev ./src/index.ts",
-    "dev2": "ts-node-dev ./test/index.ts",
-    "build-browser": "tsc src/index.ts --outDir dist-browser --module ES6",
-    "build-node": "tsc src/index.ts --outDir dist-node",
-    "build": "npm run build-browser && npm run build-node",
-    "publish": "npm publish --access public"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "color",
@@ -27,10 +20,6 @@
   },
   "homepage": "https://github.com/Yariel03/yariel.dev-colors",
   "devDependencies": {
-    "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "yariel.dev-colors": "^1.0.0"
   }
 }
