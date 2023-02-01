@@ -12,4 +12,9 @@ export interface IColor {
     GreenBg: string;
     YellowBg: string;
     BlueBg: string;
+    Random?: string;
+    Warn?: string;
+    Error?: string;
+    Info?: string;
+    Check?: string;
 }

@@ -13,46 +13,46 @@ const Color: IColor = {
   GreenBg: "\x1b[42m%s\x1b[0m",
   YellowBg: "\x1b[43m%s\x1b[0m",
   BlueBg: "\x1b[44m%s\x1b[0m",
-  Random: "",
+  Random: "Random",
+  Warn: "Warn",
+  Error: "Error",
+  Info: "Info",
+  Check: "Check",
 };
 
-const consoleLog = (
-  color: string,
-  message: string,
-  random: any = undefined
-) => {
-  if (random) {
-    leer(message);
-    return;
+const consoleLog = (color: string, message: string) => {
+  switch (color) {
+    case "Random":
+      printRandomColors(message);
+      return;
+    case "Warn":
+      console.log(Color.Yellow, `⚠️  ${message} `);
+      return;
+    case "Error":
+      console.log(Color.Red, `❌  ${message} `);
+      return;
+    case "Info":
+      console.log(Color.Blue, `🔵  ${message} `);
+      return;
+    case "Check":
+      console.log(Color.Green, `✅  ${message} `);
+      return;
+    default:
+      console.log(color, `${message} `);
+      return;
   }
-  console.log(Color.Red, message);
 };
 
-const randomColor = () => {
-  var letters = "0123456789ABCDEF";
-  var color = "#";
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+const printRandomColors = (str: string) => {
+  const colors = [31, 32, 33, 34, 35, 36, 37];
+  const result = str
+    .split("")
+    .map((char) => {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      return `\x1b[${color}m${char}\x1b[0m`;
+    })
+    .join("");
+
+  console.log(result);
 };
-
-const leer = (msg: any) => {
-  var inputValue = msg;
-  var inputSplitted = inputValue.split("");
-
-  let i = 0,
-    inputLength = inputSplitted.length;
-  var newLog = '"';
-  var colors = "";
-  for (i = 0; i < inputLength; i++) {
-    // Chaque lettre est contenue dans inputSplitted[i]
-    newLog += "%c" + inputSplitted[i];
-    colors += ',"color: ' + randomColor() + ';"';
-  }
-  newLog += '"';
-  var log = newLog + colors;
-  console.log(`"${log}"`);
-};
-
 export { consoleLog, Color };
