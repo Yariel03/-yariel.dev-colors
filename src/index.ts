@@ -13,37 +13,46 @@ const Color: IColor = {
   GreenBg: "\x1b[42m%s\x1b[0m",
   YellowBg: "\x1b[43m%s\x1b[0m",
   BlueBg: "\x1b[44m%s\x1b[0m",
+  Random: "",
 };
 
-const consoleLog = (color: string, message: string) => {
+const consoleLog = (
+  color: string,
+  message: string,
+  random: any = undefined
+) => {
+  if (random) {
+    leer(message);
+    return;
+  }
   console.log(Color.Red, message);
 };
 
-// const randomColor = () => {
-//   var letters = "0123456789ABCDEF";
-//   var color = "#";
-//   for (var i = 0; i < 6; i++) {
-//     color += letters[Math.floor(Math.random() * 16)];
-//   }
-//   return color;
-// };
+const randomColor = () => {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
 
-// const leer = (msg) => {
-//   var inputValue = msg;
-//   var inputSplitted = inputValue.split("");
+const leer = (msg: any) => {
+  var inputValue = msg;
+  var inputSplitted = inputValue.split("");
 
-//   let i = 0,
-//     inputLength = inputSplitted.length;
-//   var newLog = '"';
-//   var colors = "";
-//   for (i = 0; i < inputLength; i++) {
-//     // Chaque lettre est contenue dans inputSplitted[i]
-//     newLog += "%c" + inputSplitted[i];
-//     colors += ',"color: ' + randomColor() + ';"';
-//   }
-//   newLog += '"';
-//   var log = newLog + colors;
-//   console.log(`"${log}"`);
-// };
+  let i = 0,
+    inputLength = inputSplitted.length;
+  var newLog = '"';
+  var colors = "";
+  for (i = 0; i < inputLength; i++) {
+    // Chaque lettre est contenue dans inputSplitted[i]
+    newLog += "%c" + inputSplitted[i];
+    colors += ',"color: ' + randomColor() + ';"';
+  }
+  newLog += '"';
+  var log = newLog + colors;
+  console.log(`"${log}"`);
+};
 
 export { consoleLog, Color };

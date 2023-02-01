@@ -1,3 +1,6 @@
 test
 dist-browser
 dist-node
+src
+tsconfig.json
+tsconfig.tsbuildinfo

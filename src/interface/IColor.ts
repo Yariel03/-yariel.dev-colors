@@ -12,4 +12,5 @@ export interface IColor {
   GreenBg: string;
   YellowBg: string;
   BlueBg: string;
+  Random: string;
 }
